@@ -84,7 +84,7 @@ console.log(info);
 ### ES Modules
 ```js
 import { Api, JsonRpc, RpcError } from '@pixelgeniusid/vexjs';
-import { JsSignatureProvider } from '@pixelgeniusid/vexjs/dist/eosjs-jssig'; // dev only
+import { JsSignatureProvider } from '@pixelgeniusid/vexjs/dist/vexjs-jssig'; // dev only
 ```
 
 ### CommonJS
