@@ -1,4 +1,4 @@
-describe('eosjs web test', () => {
+describe('vexjs web test', () => {
   it('loads', () => {
     cy.visit(('./src/tests/web.html'));
   });

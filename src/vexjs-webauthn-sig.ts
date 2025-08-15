@@ -1,11 +1,11 @@
 /**
  * @module WebAuthn-Sig
  */
-// copyright defined in eosjs/LICENSE.txt
+// copyright defined in vexjs/LICENSE.txt
 
-import { SignatureProvider, SignatureProviderArgs } from './eosjs-api-interfaces';
-import * as ser from './eosjs-serialize';
-import * as numeric from './eosjs-numeric';
+import { SignatureProvider, SignatureProviderArgs } from './vexjs-api-interfaces';
+import * as ser from './vexjs-serialize';
+import * as numeric from './vexjs-numeric';
 import { ec } from 'elliptic';
 
 /** Signs transactions using WebAuthn */

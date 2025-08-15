@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2025 pixelgeniusid and its contributors.  All rights reserved.
  * Copyright (c) 2022 EOS Network Foundation (ENF) and its contributors.  All rights reserved.
  * Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.
  * MIT License
@@ -12,14 +13,14 @@ import {
     publicKeyToLegacyString,
     publicKeyToString,
     stringToPublicKey,
-} from './eosjs-numeric';
-import { constructElliptic } from './eosjs-key-conversions';
+} from './vexjs-numeric';
+import { constructElliptic } from './vexjs-key-conversions';
 
 /** Represents/stores a public key and provides easy conversion for use with `elliptic` lib */
 export class PublicKey {
     constructor(private key: Key, private ec: EC) {}
 
-    /** Instantiate public key from an EOS-format public key */
+    /** Instantiate public key from an VEX-format public key */
     public static fromString(publicKeyStr: string, ec?: EC): PublicKey {
         const key = stringToPublicKey(publicKeyStr);
         if (!ec) {
@@ -41,12 +42,12 @@ export class PublicKey {
         }, ec);
     }
 
-    /** Export public key as EOSIO-format public key */
+    /** Export public key as VEXANIUM-format public key */
     public toString(): string {
         return publicKeyToString(this.key);
     }
 
-    /** Export public key as Legacy EOS-format public key */
+    /** Export public key as Legacy VEX-format public key */
     public toLegacyString(): string {
         return publicKeyToLegacyString(this.key);
     }

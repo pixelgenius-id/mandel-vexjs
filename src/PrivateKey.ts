@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2025 pixelgeniusid and its contributors.  All rights reserved.
  * Copyright (c) 2022 EOS Network Foundation (ENF) and its contributors.  All rights reserved.
  * Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.
  * MIT License
@@ -12,8 +13,8 @@ import {
     privateKeyToLegacyString,
     privateKeyToString,
     stringToPrivateKey,
-} from './eosjs-numeric';
-import { constructElliptic, PublicKey, Signature } from './eosjs-key-conversions';
+} from './vexjs-numeric';
+import { constructElliptic, PublicKey, Signature } from './vexjs-key-conversions';
 
 /** Represents/stores a private key and provides easy conversion for use with `elliptic` lib */
 export class PrivateKey {
@@ -30,7 +31,7 @@ export class PrivateKey {
         }, ec);
     }
 
-    /** Instantiate private key from an EOS-format private key */
+    /** Instantiate private key from an VEX-format private key */
     public static fromString(keyString: string, ec?: EC): PrivateKey {
         const privateKey = stringToPrivateKey(keyString);
         if (!ec) {
@@ -48,7 +49,7 @@ export class PrivateKey {
         return privateKeyToLegacyString(this.key);
     }
 
-    /** Export private key as EOS-format private key */
+    /** Export private key as VEX-format private key */
     public toString(): string {
         return privateKeyToString(this.key);
     }

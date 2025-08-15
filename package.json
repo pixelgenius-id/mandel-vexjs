@@ -1,7 +1,7 @@
 {
-  "name": "enf-eosjs",
+ "name": "@pixelgeniusid/vexjs",
   "version": "23.0.0",
-  "description": "JS API to talk to eos blockchain",
+  "description": "JavaScript API to interact with the Vexanium blockchain (adapted from Mandel-EOSJS)",
   "main": "dist/index.js",
   "scripts": {
     "cypress": "cypress run --spec 'cypress/integration/index.spec.js'",
@@ -21,11 +21,11 @@
     "docs-serve": "python -m SimpleHTTPServer",
     "docs-publish": "sh .docs/scripts/publish.sh"
   },
-  "author": "eosnetworkfoundation",
+  "author": "pixelgeniusid",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eosnetworkfoundation/mandel-eosjs"
+    "url": "https://github.com/pixelgenius-id/mandel-vexjs"
   },
   "dependencies": {
     "bn.js": "5.2.0",

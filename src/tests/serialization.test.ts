@@ -1,6 +1,6 @@
 import {TextDecoder, TextEncoder} from 'util';
-import * as ser from "../eosjs-serialize";
-import {SerialBuffer} from "../eosjs-serialize";
+import * as ser from "../vexjs-serialize";
+import {SerialBuffer} from "../vexjs-serialize";
 
 const transactionAbi = require('../transaction.abi.json');
 
@@ -855,7 +855,7 @@ describe('Name Bytes and String Deserialization', () => {
     });
     // this is a weird one.
     // when you deserialize a name ending with "..."
-    // eosjs-serialize silently drops the trailing dots
+    // vexjs-serialize silently drops the trailing dots
     it('check name leading trailing dots', () => {
         const hex = "00C0522021700C00";
         const type = "name";

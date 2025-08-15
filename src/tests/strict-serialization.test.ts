@@ -1,6 +1,6 @@
 import { TextDecoder, TextEncoder } from 'util';
-import * as ser from "../eosjs-serialize";
-import {SerialBuffer} from "../eosjs-serialize";
+import * as ser from "../vexjs-serialize";
+import {SerialBuffer} from "../vexjs-serialize";
 const transactionAbi = require('../transaction.abi.json');
 
 // setup shared buffer re-established before every test

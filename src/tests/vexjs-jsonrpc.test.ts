@@ -1,5 +1,5 @@
-import { JsonRpc } from '../eosjs-jsonrpc';
-import { RpcError } from '../eosjs-rpcerror';
+import { JsonRpc } from '../vexjs-jsonrpc';
+import { RpcError } from '../vexjs-rpcerror';
 
 describe('JSON RPC', () => {
     const endpointExtraSlash = 'http://localhost/';
@@ -185,7 +185,7 @@ describe('JSON RPC', () => {
     it('calls get_currency_balance with all params', async () => {
         const expPath = '/v1/chain/get_currency_balance';
         const code = 'morse';
-        const symbol = 'EOS';
+        const symbol = 'VEX';
         const expReturn = { data: '12345' };
         const account = accountName
         const expParams = {
@@ -231,7 +231,7 @@ describe('JSON RPC', () => {
     it('calls get_currency_stats with all params', async () => {
         const expPath = '/v1/chain/get_currency_stats';
         const code = 'morse';
-        const symbol = 'EOS';
+        const symbol = 'VEX';
         const expReturn = { data: '12345' };
         const expParams = {
             body: JSON.stringify({

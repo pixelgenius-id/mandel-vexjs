@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2025 pixelgeniusid and its contributors.  All rights reserved.
  * Copyright (c) 2022 EOS Network Foundation (ENF) and its contributors.  All rights reserved.
  * Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.
  * MIT License
@@ -13,8 +14,8 @@ import {
     KeyType,
     signatureToString,
     stringToSignature,
-} from './eosjs-numeric';
-import { constructElliptic, PublicKey } from './eosjs-key-conversions';
+} from './vexjs-numeric';
+import { constructElliptic, PublicKey } from './vexjs-key-conversions';
 
 /** Represents/stores a Signature and provides easy conversion for use with `elliptic` lib */
 export class Signature {

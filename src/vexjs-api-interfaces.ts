@@ -1,6 +1,6 @@
-// copyright defined in eosjs/LICENSE.txt
+// copyright defined in vexjs/LICENSE.txt
 
-import { Abi, PushTransactionArgs } from './eosjs-rpc-interfaces';
+import { Abi, PushTransactionArgs } from './vexjs-rpc-interfaces';
 
 /** Arguments to `getRequiredKeys` */
 export interface AuthorityProviderArgs {

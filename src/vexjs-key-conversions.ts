@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2022 pixelgeniusid (ENF) and its contributors.  All rights reserved.
  * Copyright (c) 2022 EOS Network Foundation (ENF) and its contributors.  All rights reserved.
  * Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.
  * MIT License
@@ -7,7 +8,7 @@
 
 import {ec as EC} from 'elliptic';
 import * as hash from 'hash.js';
-import {KeyType} from './eosjs-numeric';
+import {KeyType} from './vexjs-numeric';
 import { PublicKey } from './PublicKey';
 import { PrivateKey } from './PrivateKey';
 

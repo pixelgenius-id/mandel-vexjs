@@ -1,15 +1,15 @@
 /**
  * @module JSON-RPC
  */
-// copyright defined in eosjs/LICENSE.txt
+// copyright defined in vexjs/LICENSE.txt
 
 import {
     AbiProvider,
     AuthorityProvider,
     AuthorityProviderArgs,
     BinaryAbi,
-} from './eosjs-api-interfaces'
-import { base64ToBinary, convertLegacyPublicKeys } from './eosjs-numeric'
+} from './vexjs-api-interfaces'
+import { base64ToBinary, convertLegacyPublicKeys } from './vexjs-numeric'
 import {
     GetAbiResult,
     GetBlockHeaderStateResult,
@@ -19,8 +19,8 @@ import {
     GetRawCodeAndAbiResult,
     PushTransactionArgs,
     SendTransaction2Args,
-} from './eosjs-rpc-interfaces' // tslint:disable-line
-import { RpcError } from './eosjs-rpcerror'
+} from './vexjs-rpc-interfaces' // tslint:disable-line
+import { RpcError } from './vexjs-rpcerror'
 
 function arrayToHex(data: Uint8Array) {
     let result = ''

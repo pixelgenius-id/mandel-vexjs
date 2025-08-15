@@ -2,9 +2,9 @@
 <html>
     <head>
         <link rel='stylesheet' type='text/css' href='web.css'>
-        <script src='../../dist-web/eosjs-api.js'></script>
-        <script src='../../dist-web/eosjs-jsonrpc.js'></script>
-        <script src='../../dist-web/eosjs-jssig.js'></script>
+        <script src='../../dist-web/vexjs-api.js'></script>
+        <script src='../../dist-web/vexjs-jsonrpc.js'></script>
+        <script src='../../dist-web/vexjs-jssig.js'></script>
         <script>
             const privateKey = '5JPJoZXizFVi19wHkboX5fwwEU2jZVvtSJpQkQu3uqgNu8LNdQN'; // replace with 'bob' account private key
             /* new accounts for testing can be created
@@ -16,9 +16,9 @@
             * 4) cleos create account alice publicKey
             */
         
-            const rpc = new eosjs_jsonrpc.JsonRpc('http://localhost:8888');
-            const signatureProvider = new eosjs_jssig.JsSignatureProvider([privateKey]);
-            const api = new eosjs_api.Api({ rpc, signatureProvider });
+            const rpc = new vexjs_jsonrpc.JsonRpc('http://localhost:8888');
+            const signatureProvider = new vexjs_jssig.JsSignatureProvider([privateKey]);
+            const api = new vexjs_api.Api({ rpc, signatureProvider });
         
             const EXECUTING = 'Executing Test', SUCCESS = 'Success', FAILED = 'Failed';
             let resultsLabel, transactionResponse, transactionSignatures, failedAsPlanned;
@@ -27,7 +27,7 @@
         
             const transactWithConfig = async () => await api.transact({
                 actions: [{
-                    account: 'eosio.token',
+                    account: 'vex.token',
                     name: 'transfer',
                     authorization: [{
                         actor: 'bob',
@@ -81,7 +81,7 @@
                     ref_block_num: blockInfo.block_num & 0xffff,
                     ref_block_prefix: blockInfo.ref_block_prefix,
                     actions: [{
-                        account: 'eosio.token',
+                        account: 'vex.token',
                         name: 'transfer',
                         authorization: [{
                             actor: 'bob',
@@ -123,7 +123,7 @@
         
             const transactWithoutBroadcast = async () => await api.transact({
             actions: [{
-                    account: 'eosio.token',
+                    account: 'vex.token',
                     name: 'transfer',
                     authorization: [{
                         actor: 'bob',
@@ -194,7 +194,7 @@
         
             const transactShouldFail = async () => await api.transact({
                 actions: [{
-                    account: 'eosio.token',
+                    account: 'vex.token',
                     name: 'transfer',
                     authorization: [{
                         actor: 'bob',
@@ -236,7 +236,7 @@
                 try {
                     await rpcShouldFail();
                 } catch (e) {
-                    if (e instanceof eosjs_jsonrpc.RpcError) {
+                    if (e instanceof vexjs_jsonrpc.RpcError) {
                         resultsLabel.className = "success";
                         resultsLabel.innerText = SUCCESS;
                         return true;

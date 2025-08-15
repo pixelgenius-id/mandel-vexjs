@@ -24,7 +24,7 @@ const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), te
 
 const transactWithConfig = async () => await api.transact({
     actions: [{
-        account: 'eosio.token',
+        account: 'vex.token',
         name: 'transfer',
         authorization: [{
             actor: testActor,
@@ -33,7 +33,7 @@ const transactWithConfig = async () => await api.transact({
         data: {
             from: testActor,
             to: testRecipient,
-            quantity: '0.0001 EOS',
+            quantity: '0.0001 VEX',
             memo: '',
         },
     }]
@@ -56,7 +56,7 @@ const transactWithoutConfig = async () => {
         ref_block_num: blockInfo.block_num & 0xffff,
         ref_block_prefix: blockInfo.ref_block_prefix,
         actions: [{
-            account: 'eosio.token',
+            account: 'vex.token',
             name: 'transfer',
             authorization: [{
                 actor: testActor,
@@ -65,7 +65,7 @@ const transactWithoutConfig = async () => {
             data: {
                 from: testActor,
                 to: testRecipient,
-                quantity: '0.0001 EOS',
+                quantity: '0.0001 VEX',
                 memo: '',
             },
         }]
@@ -75,7 +75,7 @@ const transactWithoutConfig = async () => {
 
 const transactWithoutBroadcast = async () => await api.transact({
   actions: [{
-        account: 'eosio.token',
+        account: 'vex.token',
         name: 'transfer',
         authorization: [{
             actor: testActor,
@@ -84,7 +84,7 @@ const transactWithoutBroadcast = async () => await api.transact({
         data: {
             from: testActor,
             to: testRecipient,
-            quantity: '0.0001 EOS',
+            quantity: '0.0001 VEX',
             memo: '',
         },
     }]
@@ -101,7 +101,7 @@ const transactWithRetry = async () =>
         {
             actions: [
                 {
-                    account: 'eosio.token',
+                    account: 'vex.token',
                     name: 'transfer',
                     authorization: [
                         {
@@ -111,7 +111,7 @@ const transactWithRetry = async () =>
                     data: {
                         from: testActor,
                         to: testRecipient,
-                        quantity: '0.0001 EOS',
+                        quantity: '0.0001 VEX',
                         memo: '',
                     },
                 }],
@@ -130,7 +130,7 @@ const transactWithRetryIrreversible = async () =>
         {
             actions: [
                 {
-                    account: 'eosio.token',
+                    account: 'vex.token',
                     name: 'transfer',
                     authorization: [
                         {
@@ -140,7 +140,7 @@ const transactWithRetryIrreversible = async () =>
                     data: {
                         from: testActor,
                         to: testRecipient,
-                        quantity: '0.0001 EOS',
+                        quantity: '0.0001 VEX',
                         memo: '',
                     },
                 }],
@@ -180,7 +180,7 @@ const broadcastResult = async (signaturesAndPackedTransaction) => await api.push
 
 const transactShouldFail = async () => await api.transact({
     actions: [{
-        account: 'eosio.token',
+        account: 'vex.token',
         name: 'transfer',
         authorization: [{
             actor: testActor,
@@ -189,7 +189,7 @@ const transactShouldFail = async () => await api.transact({
         data: {
             from: testActor,
             to: testRecipient,
-            quantity: '0.0001 EOS',
+            quantity: '0.0001 VEX',
             memo: '',
         },
     }]

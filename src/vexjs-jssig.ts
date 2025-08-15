@@ -3,6 +3,7 @@
  */
 
 /*
+ * Copyright (c) 2025 pixelgeniusid and its contributors.  All rights reserved.
  * Copyright (c) 2022 EOS Network Foundation (ENF) and its contributors.  All rights reserved.
  * Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.
  * MIT License
@@ -11,14 +12,14 @@
 
 import { ec } from 'elliptic';
 
-import { SignatureProvider, SignatureProviderArgs } from './eosjs-api-interfaces';
-import { PushTransactionArgs } from './eosjs-rpc-interfaces';
+import { SignatureProvider, SignatureProviderArgs } from './vexjs-api-interfaces';
+import { PushTransactionArgs } from './vexjs-rpc-interfaces';
 import {
     PrivateKey,
     PublicKey,
     Signature,
-} from './eosjs-key-conversions';
-import { convertLegacyPublicKey } from './eosjs-numeric';
+} from './vexjs-key-conversions';
+import { convertLegacyPublicKey } from './vexjs-numeric';
 
 /** expensive to construct; so we do it once and reuse it */
 const defaultEc = new ec('secp256k1');

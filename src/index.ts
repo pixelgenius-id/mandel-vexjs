@@ -1,9 +1,9 @@
-import { Api } from './eosjs-api';
-import * as ApiInterfaces from './eosjs-api-interfaces';
-import { JsonRpc } from './eosjs-jsonrpc';
-import * as Numeric from './eosjs-numeric';
-import * as RpcInterfaces from './eosjs-rpc-interfaces';
-import { RpcError } from './eosjs-rpcerror';
-import * as Serialize from './eosjs-serialize';
+import { Api } from './vexjs-api';
+import * as ApiInterfaces from './vexjs-api-interfaces';
+import { JsonRpc } from './vexjs-jsonrpc';
+import * as Numeric from './vexjs-numeric';
+import * as RpcInterfaces from './vexjs-rpc-interfaces';
+import { RpcError } from './vexjs-rpcerror';
+import * as Serialize from './vexjs-serialize';
 
 export { Api, ApiInterfaces, JsonRpc, Numeric, RpcInterfaces, RpcError, Serialize };

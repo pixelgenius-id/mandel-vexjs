@@ -1,11 +1,11 @@
 /**
  * @module API
  */
-// copyright defined in eosjs/LICENSE.txt
+// copyright defined in vexjs/LICENSE.txt
 
 import {ChainSemanticVersion} from './ChainSemanticVersion'
-import { AbiProvider, AuthorityProvider, BinaryAbi, CachedAbi, SignatureProvider } from './eosjs-api-interfaces';
-import { JsonRpc } from './eosjs-jsonrpc';
+import { AbiProvider, AuthorityProvider, BinaryAbi, CachedAbi, SignatureProvider } from './vexjs-api-interfaces';
+import { JsonRpc } from './vexjs-jsonrpc';
 import {
     Abi,
     BlockHeader,
@@ -13,8 +13,8 @@ import {
     GetInfoResult,
     PushTransactionArgs,
     SendTransaction2Args
-} from "./eosjs-rpc-interfaces";
-import * as ser from './eosjs-serialize';
+} from "./vexjs-rpc-interfaces";
+import * as ser from './vexjs-serialize';
 
 const abiAbi = require('../src/abi.abi.json');
 const transactionAbi = require('../src/transaction.abi.json');

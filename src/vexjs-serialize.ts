@@ -1,10 +1,10 @@
 /**
  * @module Serialize
  */
-// copyright defined in eosjs/LICENSE.txt
+// copyright defined in vexjs/LICENSE.txt
 
-import * as numeric from './eosjs-numeric';
-import {Abi, BlockTaposInfo} from './eosjs-rpc-interfaces';
+import * as numeric from './vexjs-numeric';
+import {Abi, BlockTaposInfo} from './vexjs-rpc-interfaces';
 
 /** A field in an abi */
 export interface Field {

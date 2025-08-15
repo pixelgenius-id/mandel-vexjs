@@ -3,6 +3,7 @@
  */
 
 /*
+ * Copyright (c) 2025 pixelgeniusid and its contributors.  All rights reserved.
  * Copyright (c) 2022 EOS Network Foundation (ENF) and its contributors.  All rights reserved.
  * Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.
  * MIT License
@@ -11,7 +12,7 @@
 
 import { sha256 } from 'hash.js';
 
-// copyright defined in eosjs/LICENSE.txt
+// copyright defined in vexjs/LICENSE.txt
 
 const ripemd160 = require('./ripemd').RIPEMD160.hash as (a: Uint8Array) => ArrayBuffer;
 
@@ -320,7 +321,7 @@ export const stringToPublicKey = (str: string): Key => {
     if (typeof str !== 'string') {
         throw new Error('expected string containing public key');
     }
-    if (str.substring(0, 3) === 'EOS') {
+    if (str.substring(0, 3) === 'VEX') {
         const whole = base58ToBinary(publicKeyDataSize + 4, str.substring(3));
         const key = { type: KeyType.k1, data: new Uint8Array(publicKeyDataSize) };
         for (let i = 0; i < publicKeyDataSize; ++i) {
@@ -346,7 +347,7 @@ export const stringToPublicKey = (str: string): Key => {
 /** Convert public `key` to legacy string (base-58) form */
 export const publicKeyToLegacyString = (key: Key): string => {
     if (key.type === KeyType.k1 && key.data.length === publicKeyDataSize) {
-        return keyToString(key, '', 'EOS');
+        return keyToString(key, '', 'VEX');
     } else if (key.type === KeyType.r1 || key.type === KeyType.wa) {
         throw new Error('Key format not supported in legacy conversion');
     } else {
@@ -367,17 +368,17 @@ export const publicKeyToString = (key: Key): string => {
     }
 };
 
-/** If a key is in the legacy format (`EOS` prefix), then convert it to the new format (`PUB_K1_`).
+/** If a key is in the legacy format (`VEX` prefix), then convert it to the new format (`PUB_K1_`).
  * Leaves other formats untouched
  */
 export const convertLegacyPublicKey = (str: string): string => {
-    if (str.substring(0, 3) === 'EOS') {
+    if (str.substring(0, 3) === 'VEX') {
         return publicKeyToString(stringToPublicKey(str));
     }
     return str;
 };
 
-/** If a key is in the legacy format (`EOS` prefix), then convert it to the new format (`PUB_K1_`).
+/** If a key is in the legacy format (`VEX` prefix), then convert it to the new format (`PUB_K1_`).
  * Leaves other formats untouched
  */
 export const convertLegacyPublicKeys = (keys: string[]): string[] => {

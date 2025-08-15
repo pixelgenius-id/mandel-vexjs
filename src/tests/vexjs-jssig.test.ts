@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2025 Pixelgenius Tech and its contributors.  All rights reserved.
  * Copyright (c) 2022 EOS Network Foundation (ENF) and its contributors.  All rights reserved.
  * Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.
  * MIT License
@@ -7,10 +8,10 @@
 
 import {ec} from 'elliptic';
 
-import {generateKeyPair, PrivateKey, PublicKey, sha256, Signature} from '../eosjs-key-conversions';
-import {digestFromSerializedData, JsSignatureProvider} from '../eosjs-jssig';
-import {KeyType} from '../eosjs-numeric';
-import {SignatureProviderArgs} from '../eosjs-api-interfaces';
+import {generateKeyPair, PrivateKey, PublicKey, sha256, Signature} from '../vexjs-key-conversions';
+import {digestFromSerializedData, JsSignatureProvider} from '../vexjs-jssig';
+import {KeyType} from '../vexjs-numeric';
+import {SignatureProviderArgs} from '../vexjs-api-interfaces';
 
 describe('JsSignatureProvider', () => {
     const privateKeys = [
@@ -29,9 +30,9 @@ describe('JsSignatureProvider', () => {
         'PVT_R1_eXWyndem7NE1L5jkbpL9JychLgHfwKnLkfpF2n9KXPCqdeikx'
     ];
     const legacyPublicKeys = [
-        'EOS7tgwU6E7pAUQJgqEJt66Yi8cWvanTUW8ZfBjeXeJBQvhTU9ypi',
-        'EOS8VaY5CiTexYqgQZyPTJkc3qvWuZUi12QrZL9ssjqW2es6aQk2F',
-        'EOS7VGhqctkKprW1VUj19DZZiiZLX3YcJqUJCuEcahJmUCw3wJEMu',
+        'VEX7tgwU6E7pAUQJgqEJt66Yi8cWvanTUW8ZfBjeXeJBQvhTU9ypi',
+        'VEX8VaY5CiTexYqgQZyPTJkc3qvWuZUi12QrZL9ssjqW2es6aQk2F',
+        'VEX7VGhqctkKprW1VUj19DZZiiZLX3YcJqUJCuEcahJmUCw3wJEMu',
     ];
     const k1FormatPublicKeys = [
         'PUB_K1_7tgwU6E7pAUQJgqEJt66Yi8cWvanTUW8ZfBjeXeJBQvhYTBFvY',
@@ -113,8 +114,8 @@ describe('JsSignatureProvider', () => {
 
             const sig: Signature = Signature.fromString(signOutput.signatures[0]);
             const ellipticSig: ec.Signature = sig.toElliptic();
-            const eosSig = Signature.fromElliptic(ellipticSig, KeyType.k1);
-            expect(sig).toEqual(eosSig);
+            const vexSig = Signature.fromElliptic(ellipticSig, KeyType.k1);
+            expect(sig).toEqual(vexSig);
         });
 
         it('verify a transaction', async () => {
@@ -140,15 +141,15 @@ describe('JsSignatureProvider', () => {
         });
 
         it('ensure public key functions are actual inverses of each other', async () => {
-            const eosioPubKey = PublicKey.fromString(k1FormatPublicKeys[0]);
-            const ellipticPubKey = eosioPubKey.toElliptic();
-            const finalEosioKeyAsK1String = PublicKey.fromElliptic(ellipticPubKey, KeyType.k1).toString();
-            expect(finalEosioKeyAsK1String).toEqual(k1FormatPublicKeys[0]);
+            const vexPubKey = PublicKey.fromString(k1FormatPublicKeys[0]);
+            const ellipticPubKey = vexPubKey.toElliptic();
+            const finalVexKeyAsK1String = PublicKey.fromElliptic(ellipticPubKey, KeyType.k1).toString();
+            expect(finalVexKeyAsK1String).toEqual(k1FormatPublicKeys[0]);
         });
 
         it('verify that PUB_K1_ and Legacy pub formats are consistent', () => {
-            const eosioLegacyPubKey = legacyPublicKeys[0];
-            const ellipticPubKey = PublicKey.fromString(eosioLegacyPubKey).toElliptic();
+            const vexLegacyPubKey = legacyPublicKeys[0];
+            const ellipticPubKey = PublicKey.fromString(vexLegacyPubKey).toElliptic();
             expect(PublicKey.fromElliptic(ellipticPubKey, KeyType.k1).toString()).toEqual(k1FormatPublicKeys[0]);
         });
 
@@ -168,10 +169,10 @@ describe('JsSignatureProvider', () => {
 
         it('ensure private key functions are actual inverses of each other', async () => {
             const priv = privateKeys[0];
-            const privEosioKey = PrivateKey.fromString(priv);
-            const privEllipticKey = privEosioKey.toElliptic();
-            const finalEosioKeyAsString = PrivateKey.fromElliptic(privEllipticKey, KeyType.k1).toString();
-            expect(privEosioKey.toString()).toEqual(finalEosioKeyAsString);
+            const privVexKey = PrivateKey.fromString(priv);
+            const privEllipticKey = privVexKey.toElliptic();
+            const finalVexKeyAsString = PrivateKey.fromElliptic(privEllipticKey, KeyType.k1).toString();
+            expect(privVexKey.toString()).toEqual(finalVexKeyAsString);
         });
 
         it('verify that public key validate function correctly assesses public keys', () => {
@@ -288,8 +289,8 @@ describe('JsSignatureProvider', () => {
 
             const sig: Signature = Signature.fromString(signOutput.signatures[0]);
             const ellipticSig: ec.Signature = sig.toElliptic();
-            const eosSig = Signature.fromElliptic(ellipticSig, KeyType.r1);
-            expect(sig).toEqual(eosSig);
+            const vexSig = Signature.fromElliptic(ellipticSig, KeyType.r1);
+            expect(sig).toEqual(vexSig);
         });
 
         it('verify a transaction', async () => {
@@ -315,18 +316,18 @@ describe('JsSignatureProvider', () => {
         });
 
         it('ensure public key functions using p256 format are actual inverses of each other', async () => {
-            const eosioPubKey = PublicKey.fromString(r1FormatPublicKeys[0]);
-            const ellipticPubKey = eosioPubKey.toElliptic();
-            const finalEosioKeyAsR1String = PublicKey.fromElliptic(ellipticPubKey, KeyType.r1).toString();
-            expect(finalEosioKeyAsR1String).toEqual(r1FormatPublicKeys[0]);
+            const vexPubKey = PublicKey.fromString(r1FormatPublicKeys[0]);
+            const ellipticPubKey = vexPubKey.toElliptic();
+            const finalVexKeyAsR1String = PublicKey.fromElliptic(ellipticPubKey, KeyType.r1).toString();
+            expect(finalVexKeyAsR1String).toEqual(r1FormatPublicKeys[0]);
         });
 
         it('ensure private key functions using p256 format are actual inverses of each other', async () => {
             const priv = privateKeysR1[0];
-            const privEosioKey = PrivateKey.fromString(priv);
-            const privEllipticKey = privEosioKey.toElliptic();
-            const finalEosioKeyAsString = PrivateKey.fromElliptic(privEllipticKey, KeyType.r1).toString();
-            expect(privEosioKey.toString()).toEqual(finalEosioKeyAsString);
+            const privVexKey = PrivateKey.fromString(priv);
+            const privEllipticKey = privVexKey.toElliptic();
+            const finalVexKeyAsString = PrivateKey.fromElliptic(privEllipticKey, KeyType.r1).toString();
+            expect(privVexKey.toString()).toEqual(finalVexKeyAsString);
         });
 
         it('verify that public key validate function correctly assesses public keys', () => {
