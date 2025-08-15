@@ -1,7 +1,6 @@
 # @pixelgeniusid/vexjs  
 ![npm version](https://img.shields.io/npm/v/@pixelgeniusid/vexjs.svg)  
-![npm downloads](https://img.shields.io/npm/dw/@pixelgeniusid/vexjs.svg)  
-![GitHub Workflow Status](https://github.com/pixelgenius-id/mandel-vexjs/actions/workflows/node.js.yml/badge.svg)
+![npm downloads](https://img.shields.io/npm/dw/@pixelgeniusid/vexjs.svg)
 
 ## <span style="color:#ffe200">⚠ This is a modified fork of [mandel-eosjs](https://github.com/eosnetworkfoundation/mandel-eosjs)</span>
 
