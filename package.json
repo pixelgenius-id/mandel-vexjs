@@ -1,6 +1,6 @@
 {
  "name": "@pixelgeniusid/vexjs",
- "version": "23.0.0",
+ "version": "23.0.1",
  "description": "JavaScript API to interact with the Vexanium blockchain (adapted from Mandel-EOSJS)",
  "main": "dist/index.js",
  "scripts": {
